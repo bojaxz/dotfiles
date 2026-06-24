@@ -494,23 +494,24 @@ local setup_treesitter = function()
 end
 
 setup_treesitter()
-
-local function get_notes_path()
-  local os_release = vim.fn.system("cat /etc/os-release")
-  if os_release:match("Artix") then
-    return vim.fn.expand("~/Documents/Notes")
-  elseif os_release:match("Ubuntu") then
-    return "/mnt/c/Users/Rad/Documents/Notes"
-  else
-    error("Unsupported OS: no notes path configured")
-  end
-end
-
+-- Use a portable Obsidian vault path across macOS and WSL
+-- run mkdir -p ~/Documents/Notes on a new machine to get a consistent directory for obsidian
 local function setup_obsidian()
+  local notes_path = vim.fn.expand("~/Documents/Notes")
+
+  if vim.fn.isdirectory(notes_path) == 0 then
+    return
+  end
+
   require("obsidian").setup({
     legacy_commands = false,
-    workspaces = { { name = "Notes", path = get_notes_path() } },
-    picker = { name = "fzf-lua" },
+
+    workspaces = { 
+      { 
+        name = "Notes",
+        path = notes_path,
+      },
+    },
   })
 
   vim.keymap.set("n", "<leader>nn", function()
