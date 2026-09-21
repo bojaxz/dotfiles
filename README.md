@@ -44,7 +44,6 @@ Nothing needs installing by hand.
 | Go | `gopls` | revive | gofumpt |
 | Shell | `bashls` | shellcheck | shfmt |
 | C / C++ | `clangd` | `clangd` | `clangd` |
-| Rust | rustaceanvim | `rust_analyzer` | rustfmt |
 | YAML / Docker | `yamlls`, `dockerls` | — | prettierd |
 | Markdown / HTML / CSS | — | — | prettierd / biome |
 
@@ -62,12 +61,20 @@ reporting the same problems on the same line.
 To make biome the only thing that ever touches JS/TS, delete the js/ts/json entries
 from `lua/lsp/efm.lua`.
 
-Rust is the one thing Mason does not provide, because rustaceanvim expects the
-rustup-managed server:
+### Adding a language
 
-```sh
-rustup component add rust-analyzer
-```
+Add the server to `lua/lsp/servers.lua` (config block plus the returned list) and its
+Mason package to `lua/lsp/mason.lua`. If it should be allowed to format, add it to the
+priority list in `lua/lsp/format.lua` — servers not on that list never format, which
+is what keeps `ts_ls` from fighting biome.
+
+Prefer packages that ship as prebuilt binaries or npm modules. Mason's pypi and
+luarocks installers need `pip` and `luarocks` present on the host and fail quietly
+without them.
+
+Rust is the exception to the above: it wants rustaceanvim, which owns the
+`rust_analyzer` client itself rather than going through `vim.lsp.enable`, and the
+rustup-managed server rather than Mason's (`rustup component add rust-analyzer`).
 
 ## Keymaps
 

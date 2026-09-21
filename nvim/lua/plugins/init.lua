@@ -27,7 +27,6 @@ vim.pack.add({
 		version = vim.version.range("1.*"),
 	},
 	"https://github.com/L3MON4D3/LuaSnip",
-	"https://github.com/mrcjkb/rustaceanvim",
 
 	-- Misc
 	"https://github.com/obsidian-nvim/obsidian.nvim",

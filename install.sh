@@ -48,10 +48,6 @@ fi
 command -v node >/dev/null 2>&1 ||
   warn "node not found. ts_ls, biome, prettierd and the yaml/docker servers need it."
 
-command -v rustup >/dev/null 2>&1 ||
-  warn "rustup not found. Skip unless you write Rust; otherwise:
-      rustup component add rust-analyzer"
-
 if [ ! -d ~/Documents/Notes ]; then
   echo "  - ~/Documents/Notes absent, so Obsidian stays off. mkdir it to enable."
 fi

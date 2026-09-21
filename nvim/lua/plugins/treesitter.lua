@@ -14,7 +14,6 @@ local ensure_installed = {
 	"cpp",
 	"go",
 	"gomod",
-	"rust",
 	"python",
 	"html",
 	"css",

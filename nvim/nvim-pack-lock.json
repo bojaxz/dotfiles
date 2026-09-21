@@ -45,10 +45,6 @@
       "rev": "adec31aabb244790c12ba8f0d19672f22b075b6a",
       "src": "https://github.com/obsidian-nvim/obsidian.nvim"
     },
-    "rustaceanvim": {
-      "rev": "e7f64f5184a92fe06e4e8fb64b4aae467e272da5",
-      "src": "https://github.com/mrcjkb/rustaceanvim"
-    },
     "vim-tmux-navigator": {
       "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
       "src": "https://github.com/christoomey/vim-tmux-navigator"

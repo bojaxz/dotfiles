@@ -76,13 +76,9 @@ vim.lsp.config("bashls", {})
 vim.lsp.config("gopls", {})
 vim.lsp.config("clangd", {})
 
--- Rust is driven by rustaceanvim, not vim.lsp.enable. It owns the
--- rust_analyzer client itself and must not be listed below.
-vim.g.rustaceanvim = {
-	server = {
-		capabilities = require("blink.cmp").get_lsp_capabilities(),
-	},
-}
+-- No Rust setup here. If that changes, rustaceanvim is the way to add it: it
+-- owns the rust_analyzer client itself, so it goes in the plugin list and gets
+-- its capabilities via vim.g.rustaceanvim rather than being listed below.
 
 return {
 	"ts_ls",

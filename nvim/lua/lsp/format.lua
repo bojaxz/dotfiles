@@ -2,12 +2,10 @@
 -- FORMAT ON SAVE
 -- ============================================================================
 --
--- The previous version had two bugs:
---
---   1. It only ever formatted with efm (`filter = c.name == "efm"`), so Rust
---      never formatted on save even though rustaceanvim can do it.
---   2. It gated on a hardcoded list of file extensions that omitted *.rs
---      anyway, so new filetypes silently opted out.
+-- The previous version formatted only with efm (`filter = c.name == "efm"`)
+-- and gated on a hardcoded list of file extensions, so any language whose
+-- formatting came from its own language server silently never formatted, and
+-- new filetypes opted out unless the extension list was updated too.
 --
 -- Instead: pick the highest-priority attached client that can format. The list
 -- is explicit rather than "whatever attached first" because several servers
@@ -21,7 +19,6 @@ local M = {}
 local priority = {
 	"biome", -- JS/TS/JSON/CSS in a biome repo
 	"efm", -- everything else, via lsp/efm.lua
-	"rust_analyzer", -- rustfmt, via rustaceanvim
 	"gopls",
 	"clangd",
 }

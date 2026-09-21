@@ -22,5 +22,3 @@ brew "go"
 #   node    - managed by nvm; a brew copy would shadow the nvm one on PATH.
 #             install.sh checks for it instead. Needed by ts_ls, biome,
 #             prettierd, and the yaml/docker servers.
-#   rust    - rustaceanvim wants the rustup-managed rust-analyzer:
-#             rustup component add rust-analyzer

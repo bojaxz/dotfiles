@@ -60,8 +60,4 @@ require("mason-tool-installer").setup({
 	start_delay = 1000,
 })
 
--- rust-analyzer is deliberately absent: rustaceanvim expects the rustup-managed
--- one and mason's copy fights it. Install with:
---   rustup component add rust-analyzer
-
 vim.keymap.set("n", "<leader>lm", "<cmd>Mason<CR>", { desc = "Mason (manage tools)" })
