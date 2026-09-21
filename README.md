@@ -36,16 +36,16 @@ Plugin revisions are pinned in `nvim/nvim-pack-lock.json`. Update with
 Mason provisions everything automatically from the list in `lua/lsp/mason.lua`.
 Nothing needs installing by hand.
 
-| Language | Server | Lint | Format |
-| --- | --- | --- | --- |
-| TypeScript / JavaScript | `ts_ls` | biome | biome |
-| Lua | `lua_ls` | `lua_ls` | stylua |
-| Python | `pyright` | ruff | ruff |
-| Go | `gopls` | revive | gofumpt |
-| Shell | `bashls` | shellcheck | shfmt |
-| C / C++ | `clangd` | `clangd` | `clangd` |
-| YAML / Docker | `yamlls`, `dockerls` | — | prettierd |
-| Markdown / HTML / CSS | — | — | prettierd / biome |
+| Language                | Server               | Lint       | Format            |
+| ----------------------- | -------------------- | ---------- | ----------------- |
+| TypeScript / JavaScript | `ts_ls`              | biome      | biome             |
+| Lua                     | `lua_ls`             | `lua_ls`   | stylua            |
+| Python                  | `pyright`            | ruff       | ruff              |
+| Go                      | `gopls`              | revive     | gofumpt           |
+| Shell                   | `bashls`             | shellcheck | shfmt             |
+| C / C++                 | `clangd`             | `clangd`   | `clangd`          |
+| YAML / Docker           | `yamlls`, `dockerls` | —          | prettierd         |
+| Markdown / HTML / CSS   | —                    | —          | prettierd / biome |
 
 ### How biome and prettier coexist
 
@@ -79,37 +79,26 @@ rustup-managed server rather than Mason's (`rustup component add rust-analyzer`)
 ## Keymaps
 
 Leader is `<Space>`. Press it alone to browse everything via which-key — every
-mapping carries a description, so the popup and `<leader>fk` are the real reference.
-No mapping is a prefix of another, so nothing stalls waiting for a second key.
+mapping carries a description, so the popup and `<leader>fk` read off the live
+mappings and cannot drift. No mapping is a prefix of another, so nothing stalls
+waiting for a second key.
 
-| Group | |
-| --- | --- |
-| `<leader>b` | buffers |
-| `<leader>c` | code (action, rename, format, organize imports) |
-| `<leader>d` | diagnostics |
-| `<leader>f` | find (fzf-lua) |
-| `<leader>g` | goto (definition, references, implementations) |
-| `<leader>h` | git hunks |
-| `<leader>l` | lsp (symbols, restart, inlay hints, Mason) |
-| `<leader>n` | notes (Obsidian) |
-| `<leader>p` | copy file path |
-| `<leader>s` | splits |
-| `<leader>t` | terminal and toggles |
+**[nvim/KEYMAPS.md](nvim/KEYMAPS.md) is the full reference**, grouped by task and
+including the plugin and Neovim built-in mappings worth knowing. The ones you will
+reach for first:
 
-Frequently used, outside the groups:
-
-| Key | |
-| --- | --- |
-| `<leader>e` | toggle file tree |
-| `<leader>ff` / `<leader>fg` | find files / live grep |
-| `<leader>gd` | go to definition |
-| `<leader>ca` / `<leader>cr` | code action / rename |
-| `<leader>tt` / `<leader>tg` | floating terminal / lazygit |
-| `K` | hover docs |
-| `]d` `[d` / `]h` `[h` | next/prev diagnostic / git hunk |
-| `<Esc>` | clear search highlights |
-| `<M-h/j/k/l>` | move line or selection (mini.move) |
-| `<C-h/j/k/l>` | move between windows and tmux panes |
+| Key                         |                                     |
+| --------------------------- | ----------------------------------- |
+| `<leader>e`                 | toggle file tree                    |
+| `<leader>ff` / `<leader>fg` | find files / live grep              |
+| `<leader>gd`                | go to definition                    |
+| `<leader>ca` / `<leader>cr` | code action / rename                |
+| `<leader>tt` / `<leader>tg` | floating terminal / lazygit         |
+| `K`                         | hover docs                          |
+| `]d` `[d` / `]h` `[h`       | next/prev diagnostic / git hunk     |
+| `<Esc>`                     | clear search highlights             |
+| `<M-h/j/k/l>`               | move line or selection (mini.move)  |
+| `<C-h/j/k/l>`               | move between windows and tmux panes |
 
 ### Formatting
 
